@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DC Universe Explorer</title>
+    <link rel="icon" type="image/png" href="asset/icon.png">
+    <link rel="stylesheet" href="style.css">
+    <meta name="theme-color" content="#00b0ff">
+    <meta name="description" content="Explore DC Universe Heroes and Villains">
+</head>
+
+<body>
+    <div id="loading-screen">
+        <div class="loading-portal"></div>
+        <img src="asset/icon.png" alt="DC Loading" class="loading-logo">
+    </div>
+
+    <audio id="intro-music" preload="auto" loop>
+        <source src="asset/intro-music.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <!-- Theme Toggle -->
+    <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">🌙</button>
+
+    <header class="hero-header">
+        <div class="header-top">
+            <img src="asset/logo.png" alt="DC Logo" class="dc-logo">
+            <h1><span class="dc-blue">DC</span> Universe Explorer</h1>
+        </div>
+
+        <!-- Advanced Filters -->
+        <div class="filter-section">
+            <input id="search" type="text" placeholder="🔍 Search your hero..." aria-label="Search heroes" />
+
+            <div class="filter-controls">
+                <select id="power-filter" aria-label="Filter by power">
+                    <option value="">All Powers</option>
+                    <option value="intelligence">High Intelligence</option>
+                    <option value="strength">Super Strength</option>
+                    <option value="speed">Super Speed</option>
+                    <option value="durability">High Durability</option>
+                </select>
+
+                <select id="alignment-filter" aria-label="Filter by alignment">
+                    <option value="">All Alignments</option>
+                    <option value="good">Heroes</option>
+                    <option value="bad">Villains</option>
+                    <option value="neutral">Neutral</option>
+                </select>
+
+                <select id="category-filter" aria-label="Filter by category">
+                    <option value="">All Categories</option>
+                    <option value="justiceLeague">Justice League</option>
+                    <option value="batmanFamily">Batman Family</option>
+                    <option value="supermanFamily">Superman Family</option>
+                    <option value="greenLantern">Green Lantern Corps</option>
+                </select>
+            </div>
+
+            <!-- Search History -->
+            <div id="search-history" class="search-history"></div>
+        </div>
+    </header>
+
+    <!-- Statistics Bar -->
+    <div id="stats-bar" class="stats-bar">
+        <span id="hero-counter" class="hero-counter">Loading heroes...</span>
+        <div class="stats-controls">
+            <button id="show-favorites" class="filter-btn">⭐ Favorites</button>
+            <button id="show-statistics" class="filter-btn">📊 Statistics</button>
+            <button id="compare-heroes" class="filter-btn">⚖️ Compare</button>
+        </div>
+    </div>
+
+    <main id="hero-container" class="fade-in" aria-live="polite"></main>
+
+    <!-- Hero Modal -->
+    <div id="hero-modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-name">
+        <div class="modal-content">
+            <button id="close-modal" class="close-btn" aria-label="Close details">&times;</button>
+
+            <img id="modal-image" src="" alt="Hero Image">
+            <div class="modal-text">
+                <div class="modal-header">
+                    <h2 id="modal-name"></h2>
+                    <button id="modal-favorite" class="favorite-btn" aria-label="Add to favorites">☆ Add
+                        Favorite</button>
+                    <button id="modal-compare" class="compare-btn" aria-label="Add to compare">⚖️ Add to
+                        Compare</button>
+                    <button id="modal-share" class="share-btn" aria-label="Share hero">📤 Share</button>
+                </div>
+                <p><strong>Real Name:</strong> <span id="modal-fullname"></span></p>
+                <p><strong>Place of Birth:</strong> <span id="modal-place"></span></p>
+                <p><strong>First Appearance:</strong> <span id="modal-first"></span></p>
+                <p><strong>Alignment:</strong> <span id="modal-alignment"></span></p>
+                <p><strong>Power Stats:</strong></p>
+                <ul id="modal-stats"></ul>
+                <div class="power-chart" id="power-chart"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Statistics Modal -->
+    <div id="stats-modal" class="modal" role="dialog" aria-modal="true">
+        <div class="modal-content stats-modal">
+            <button id="close-stats" class="close-btn">&times;</button>
+            <h2>DC Universe Statistics</h2>
+            <div id="stats-content" class="stats-content"></div>
+        </div>
+    </div>
+
+    <!-- Compare Modal -->
+    <div id="compare-modal" class="modal" role="dialog" aria-modal="true">
+        <div class="modal-content compare-modal">
+            <button id="close-compare" class="close-btn">&times;</button>
+            <h2>Compare Heroes</h2>
+            <div id="compare-content" class="compare-content"></div>
+        </div>
+    </div>
+
+    <!-- Music Button -->
+    <button id="music-btn" class="music-btn" aria-label="Toggle background music" aria-live="polite">🎵 Play</button>
+
+    <!-- Scroll to Top -->
+    <button id="scroll-top" class="scroll-top-btn" aria-label="Scroll to top">↑</button>
+
+    <footer>
+        <p>Made by <strong>Azwir</strong> — DC Fans</p>
+    </footer>
+
+    <script src="dev.js"></script>
+</body>
+
+</html>
